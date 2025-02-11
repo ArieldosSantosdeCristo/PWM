@@ -8,7 +8,9 @@
 
 void set_servo_angle(uint slice_num, uint channel, uint32_t pulse_width_us) {
     uint32_t wrap_value = (CLOCK_FREQ / PWM_FREQ) - 1;
+    
     uint32_t duty = (pulse_width_us * wrap_value) / 20000;
+    
     pwm_set_chan_level(slice_num, channel, duty);
     pwm_set_enabled(slice_num, true); // Garantir que o PWM esteja ativado
 }
@@ -17,6 +19,7 @@ int main() {
     stdio_init_all();
 
     gpio_set_function(SERVO_PIN, GPIO_FUNC_PWM);
+    
     uint slice_num = pwm_gpio_to_slice_num(SERVO_PIN);
     uint channel = pwm_gpio_to_channel(SERVO_PIN);
 
