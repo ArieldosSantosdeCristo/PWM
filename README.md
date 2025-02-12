@@ -19,3 +19,5 @@ Compile e carregue o código na Raspberry Pi Pico.
 Conecte o servo motor ao GPIO 22.
 O servo se moverá inicialmente para 180° → 90° → 0°.
 Após isso, iniciará um movimento oscilatório contínuo entre 0° e 180°.
+
+Video: https://drive.google.com/file/d/152Q_ysI2kPHuONgFpUiBveq_Q8NXVBQ6/view?usp=sharing
