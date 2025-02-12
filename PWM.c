@@ -3,7 +3,7 @@
 #include "hardware/pwm.h"
 
 #define PINO_SERVO 22 // Pino do servo motor (GPIO 22)
-#define PINO_LED   12 // Pino do LED RGB (GPIO 12 Azul)
+
 
 // Definições do PWM para 50Hz (período de 20ms)
 const uint16_t PERIODO_PWM = 20000;
@@ -34,7 +34,7 @@ void configurar_pwm(uint gpio) {
 // Função para ajustar a posição do servo e a intensidade do LED
 void ajustar_servo_e_led(uint16_t largura_pulso) {
     pwm_set_gpio_level(PINO_SERVO, largura_pulso);
-    pwm_set_gpio_level(PINO_LED, (largura_pulso - PULSO_0_GRAUS) * 10);
+  
 }
 
 // Movimentação contínua e suave entre 0° e 180°
@@ -54,7 +54,7 @@ void movimentar_servo_suavemente() {
 int main() {
     stdio_init_all();
     configurar_pwm(PINO_SERVO);
-    configurar_pwm(PINO_LED);
+  
 
     uint16_t posicoes_iniciais[] = {PULSO_180_GRAUS, PULSO_90_GRAUS, PULSO_0_GRAUS};
     for (int i = 0; i < 3; i++) {
